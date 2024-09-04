@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { usePropertyApp } from "../Context/PropertyAppContext";
 import { useState } from "react";
+import EmptyCartComp from "./EmptyCartComp";
 ;
 
 const CartComp = () => {
@@ -24,20 +25,7 @@ const CartComp = () => {
     return (
         <>
             {state?.WhishList1 && state.WhishList1.length === 0 ? (
-                <section class="empty-cart-section">
-                    <div class="empty-cart-message">
-                        <i class="fa-solid fa-hourglass"></i>
-                        <h2>Haven't Booked Anything Yet</h2>
-                        <p>Looks like you haven't added anything to your List yet.</p>
-                        <p>Start exploring and add some great Properties !</p>
-                        <button
-                            class="shop-now-btn"
-                            onClick={() => navigation('/')}
-                        >
-                            Explore Now
-                        </button>
-                    </div>
-                </section>
+                <EmptyCartComp />
             ) : (
                 <section class="cart-section">
                     <h2>Your Cart</h2>
@@ -52,7 +40,12 @@ const CartComp = () => {
                                         <div class="item-details">
                                             <h3>{name}</h3>
                                             <p class="price">Price: INR {price} ₹</p>
-                                            <a class="see-details">See details</a>
+                                            <a
+                                                class="see-details"
+                                                onClick={() => { navigation("/propertyPage") }}
+                                            >
+                                                See details
+                                            </a>
                                         </div>
                                         <div class="item-actions">
                                             <button

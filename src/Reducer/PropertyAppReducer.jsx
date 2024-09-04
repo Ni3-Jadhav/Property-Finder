@@ -207,6 +207,7 @@ export const instialState = {
   propertyList1: propertyListData,
   filterProperty: propertyListData,
   WhishList1: []
+ 
 };
 
 export const PropertyAppreducer = (state, { type, payload }) => {
@@ -216,7 +217,7 @@ export const PropertyAppreducer = (state, { type, payload }) => {
     case "ADD_WHISHLIST":
       const addWishlist = state?.propertyList1?.find(({ id }) => id === payload);
       return { ...state, WhishList1: [...state.WhishList1, addWishlist] };
-
+     
     case "REMOVE_WHISHLIST":
       const removeWhishlist = state?.WhishList1?.filter(({ id }) => id !== payload);
       return { ...state, WhishList1: removeWhishlist };
