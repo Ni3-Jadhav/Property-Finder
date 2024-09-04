@@ -1,22 +1,21 @@
 import NavComp from "../Components/NavComp";
 import FooterComp from "../Components/FooterComp";
 import { usePropertyApp } from "../Context/PropertyAppContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const PropertyPage = () => {
 
-    const { state ,dispatch } = usePropertyApp();
+    const location1 = useLocation();
+    const { id, image, name, price, location, address, bedrooms, amenities } = location1.state || {}
+    const { state, dispatch } = usePropertyApp();
     const navigate = useNavigate();
 
     return (
         <>
             <NavComp />
 
-            {state?.WhishList1 && 
-            state?.WhishList1.map(
-                ({ id, image, name, price, location, address, bedrooms, amenities }) => {
-                    return (
-            <div class="property-page-container" key={id}>
+
+            <div class="property-page-container" >
                 <div class="property-image">
                     <img src={image} alt="Property Image" />
                 </div>
@@ -26,7 +25,7 @@ const PropertyPage = () => {
                     <p class="property-location">{location}</p>
                     <h2 class="property-price">INR{price} ₹</h2>
                     <p class="property-address">
-                       {address}
+                        {address}
                     </p>
                     <p class="property-bedrooms">
                         <strong>Bedrooms:</strong> {bedrooms}BHK
@@ -37,25 +36,24 @@ const PropertyPage = () => {
 
 
                     <div class="property-buttons">
-                        <button 
-                        class="action-btn"
-                        onClick={() => {navigate("/")}}
+                        <button
+                            class="action-btn"
+                            onClick={() => { navigate("/") }}
                         >
                             <i class="fas fa-home"></i> Home
                         </button>
-                        <button 
-                        class="action-btn"
-                        onClick={()=>
-                            dispatch({type: "ADD_WHISHLIST", payload: id})
-                        }
+                        <button
+                            class="action-btn"
+                            onClick={() =>
+                                dispatch({ type: "ADD_WHISHLIST", payload: id })
+                            }
                         >
                             <i class="fa-solid fa-bookmark"></i> Book Now
                         </button>
                     </div>
                 </div>
             </div>
-)
-})}
+
             <FooterComp />
         </>
     );
