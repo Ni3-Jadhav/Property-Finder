@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const PropertyPage = () => {
 
-    const location1 = useLocation();
-    const { id, image, name, price, location, address, bedrooms, amenities } = location1.state || {}
+    const locationUrl = useLocation();
+    const { id, image, name, price, location, address, bedrooms, amenities } = locationUrl.state || {}
     const { state, dispatch } = usePropertyApp();
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const PropertyPage = () => {
                 <div class="property-details">
                     <h1 class="property-name">{name}</h1>
                     <p class="property-location">{location}</p>
-                    <h2 class="property-price">INR{price} ₹</h2>
+                    <h2 class="property-price">INR {price} ₹</h2>
                     <p class="property-address">
                         {address}
                     </p>

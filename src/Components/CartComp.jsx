@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { usePropertyApp } from "../Context/PropertyAppContext";
 import { useState } from "react";
 import EmptyCartComp from "./EmptyCartComp";
-;
+
 
 const CartComp = () => {
 
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const { state, dispatch } = usePropertyApp();
     const [quantity1, setQuantity1] = useState({});
 
@@ -32,7 +32,7 @@ const CartComp = () => {
 
                     <div class="cart-container">
                         {state?.WhishList1 &&
-                            state?.WhishList1.map(({ id, image, name, price }) => {
+                            state?.WhishList1.map(({ id, image, name, price, location, address, bedrooms, amenities }) => {
                                 const itemQuantity = quantity1[id] || 1;
                                 return (
                                     <div class="cart-item" key={id}>
@@ -42,7 +42,12 @@ const CartComp = () => {
                                             <p class="price">Price: INR {price} ₹</p>
                                             <a
                                                 class="see-details"
-                                                onClick={() => { navigation("/propertyPage") }}
+                                                onClick={() => {
+                                                    navigate("/propertyPage",
+                                                        {
+                                                            state: { id, image, name, price, location, address, bedrooms, amenities }
+                                                        })
+                                                }}
                                             >
                                                 See details
                                             </a>
@@ -81,7 +86,7 @@ const CartComp = () => {
                         <h3>Total Amount: INR {totalAmount}₹</h3>
                         <button
                             class="checkout-btn"
-                            onClick={() => navigation("/paymentPage", { state: { totalAmount } })}
+                            onClick={() => navigate("/paymentPage", { state: { totalAmount } })}
                         >
                             Proceed to Checkout
                         </button>
