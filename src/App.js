@@ -6,6 +6,7 @@ import PaymentPage from "./Pages/PaymentPage";
 import SuccesPayPage from "./Pages/SuccessPayPage";
 import PropertyAppProvider from "./Context/PropertyAppContext";
 import PropertyPage from "./Pages/PropertyPage";
+import FavListPage from "./Pages/FavListPage";
 
 const App = ()=> {
   return (
@@ -18,6 +19,7 @@ const App = ()=> {
           <Route path="/paymentPage" element={<PaymentPage/>}/>
           <Route path="/succesPay" element ={<SuccesPayPage/>}/>
           <Route path="/propertyPage" element ={<PropertyPage/>}/>
+          <Route path="/favListPage" element ={<FavListPage/>}/>
         </Routes>
         </PropertyAppProvider>
       </BrowserRouter>

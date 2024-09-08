@@ -9,7 +9,7 @@ const HomeComp = () => {
     return (
         <>
             <section class="property-listings">
-                <h2>Available Properties</h2>
+                <h2 id="up">Available Properties</h2>
                 <div class="properties-container">
                     {state?.filterProperty.map(
                         ({ id, image, name, price, location, address, bedrooms, amenities }) => {
@@ -41,6 +41,7 @@ const HomeComp = () => {
                         }
                     )}
                 </div>
+                <a href="#up" className="up-btn" ><i class="fa-solid fa-angle-up"></i></a>
             </section>
 
         </>

@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 const FooterComp = () => {
+
+    const navigate = useNavigate();
+
     return (
         <>
             <footer class="site-footer">
@@ -11,8 +16,18 @@ const FooterComp = () => {
                     <div class="footer-links">
                         <h4>Quick Links</h4>
                         <ul>
-                            <li><a >Home</a></li>
-                            <li><a >Properties</a></li>
+                            <li><a
+                                onClick={() => navigate('/')}
+                            >
+                                Home
+                            </a>
+                            </li>
+                            <li><a
+                                onClick={() => navigate('/')}
+                            >
+                                Properties
+                            </a>
+                            </li>
                             <li><a >Contact Us</a></li>
                             <li><a >About Us</a></li>
                         </ul>

@@ -73,7 +73,7 @@ const NavComp = () => {
                                             </a>
                                             <a
                                                 onClick={() =>
-                                                    dispatch({ type: "LOCATION", payload: "bangalore" })
+                                                    dispatch({ type: "LOCATION", payload: "bengaluru" })
                                                 }
                                             >
                                                 Bangalore
