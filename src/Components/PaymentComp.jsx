@@ -20,11 +20,13 @@ const PaymentComp = () => {
     const handleInput = (triggerEvent) => {
         const { name, value } = triggerEvent.target;
         setFromData((formDetail) => ({ ...formDetail, [name]: value }));
+  
     };
 
     const handleFromData = (triggerEvent) => {
         triggerEvent.preventDefault();
-        navigate("/succesPay");
+        navigate("/succesPay");      
+        console.log(formData)
     };
 
     return (
