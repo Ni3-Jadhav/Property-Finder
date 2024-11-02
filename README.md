@@ -1,4 +1,4 @@
-# Property Finder Responsive Website
+# Property Finder Responsive Website.
 
 ## Overview
 The Property Finder is a responsive web application designed to help users search and filter properties based on various criteria such as city name and price range. The project is built using HTML5, CSS, and React.js, focusing on a smooth user experience without requiring backend or API integration.
